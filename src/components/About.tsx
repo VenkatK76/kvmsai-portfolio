@@ -1,7 +1,9 @@
 
 import React from 'react';
-import { Briefcase, Code, Server, ExternalLink } from 'lucide-react';
+import { Code, Server, ExternalLink, MapPin, Mail, Calendar, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
+import { Card, CardContent } from '@/components/ui/card';
 
 const About = () => {
   const skills = [
@@ -11,95 +13,123 @@ const About = () => {
   return (
     <section id="about" className="section-padding bg-gray-50 dark:bg-navy-light">
       <div className="container">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">About Me</h2>
           <div className="w-20 h-1 bg-teal mx-auto"></div>
         </div>
         
-        <div className="max-w-3xl mx-auto bg-white dark:bg-navy p-8 md:p-10 rounded-lg shadow-sm">
-          <div className="flex justify-between items-center mb-6">
-            <h3 className="text-xl font-semibold">Dear Visitor,</h3>
-            <span className="text-gray-500 dark:text-gray-400">Today's Date</span>
-          </div>
-          
-          <div className="space-y-4 text-gray-700 dark:text-gray-300">
-            <p>
-              Thank you for visiting my portfolio website. I'm excited to share my journey with you as a passionate web developer with over 5 years of experience in creating responsive and interactive web applications.
-            </p>
-            
-            <p>
-              My expertise lies in building seamless digital experiences using modern technologies like{' '}
-              {skills.map((skill, index) => (
-                <span key={index}>
-                  <span className="text-teal font-medium">{skill}</span>
-                  {index < skills.length - 1 && (index === skills.length - 2 ? ' and ' : ', ')}
-                </span>
-              ))}.
-              With a strong foundation in both frontend and backend technologies, I craft solutions that solve real-world problems.
-            </p>
-            
-            <p>
-              Throughout my career, I've worked on various projects ranging from simple landing pages to complex enterprise applications. I invite you to explore my{' '}
-              <a href="#projects" className="text-teal hover:underline inline-flex items-center">
-                projects section <ExternalLink className="ml-1" size={16} />
-              </a>{' '}
-              to see examples of my work. Each project represents a unique challenge that I've tackled with creativity and technical expertise.
-            </p>
-            
-            <p>
-              My professional journey has equipped me with experience across different industries, which you can learn more about in the{' '}
-              <a href="#projects" className="text-teal hover:underline inline-flex items-center">
-                experience section <ExternalLink className="ml-1" size={16} />
-              </a>. 
-              This diverse background allows me to approach problems from multiple perspectives and deliver innovative solutions.
-            </p>
-            
-            <p>
-              When I'm not coding, I enjoy hiking, reading sci-fi novels, and experimenting with new recipes in the kitchen. I believe in continuous learning and am always exploring new technologies to stay at the cutting edge of web development.
-            </p>
-            
-            <p className="mt-8">
-              I look forward to potential collaborations and opportunities to discuss how my skills can contribute to your next digital project.
-            </p>
-            
-            <p className="mt-4">
-              Sincerely,
-            </p>
-            
-            <p className="font-semibold">
-              Your Name
-            </p>
-          </div>
-        </div>
+        <Card className="bg-white dark:bg-navy border-none shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <CardContent className="p-0">
+            <div className="flex flex-col md:flex-row">
+              {/* Left sidebar with personal details */}
+              <div className="w-full md:w-1/4 bg-teal/5 p-6 md:p-8 border-b md:border-b-0 md:border-r border-gray-100 dark:border-gray-800">
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center gap-2">
+                    <User size={20} className="text-teal" />
+                    <span className="font-medium">Web Developer</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MapPin size={20} className="text-teal" />
+                    <span>San Francisco, CA</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Mail size={20} className="text-teal" />
+                    <span>contact@example.com</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Calendar size={20} className="text-teal" />
+                    <span>5+ Years Experience</span>
+                  </div>
+                  <Separator className="my-4" />
+                  <div>
+                    <h3 className="text-sm font-semibold uppercase tracking-wider mb-3">Technical Skills</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {skills.map((skill, index) => (
+                        <span 
+                          key={index} 
+                          className="text-xs px-2 py-1 bg-teal/10 text-teal rounded-full"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Right side with letter content */}
+              <div className="w-full md:w-3/4 p-6 md:p-8">
+                <div className="space-y-5">
+                  <div className="flex justify-between items-center">
+                    <h3 className="text-xl font-semibold">Professional Summary</h3>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">{new Date().toLocaleDateString()}</span>
+                  </div>
+                  
+                  <div className="prose prose-sm dark:prose-invert max-w-none">
+                    <p>
+                      Thank you for visiting my portfolio. I'm a dedicated web developer with extensive experience creating responsive, user-focused applications that solve real business problems.
+                    </p>
+                    
+                    <p>
+                      My expertise spans both frontend and backend technologies, with particular strength in creating intuitive user interfaces using <span className="text-teal font-medium">React</span> and <span className="text-teal font-medium">TypeScript</span>, backed by robust server architectures with <span className="text-teal font-medium">Node.js</span>.
+                    </p>
+                    
+                    <p>
+                      I pride myself on writing clean, maintainable code and staying current with emerging technologies and best practices in web development. My approach combines technical excellence with strong communication skills and a deep understanding of business requirements.
+                    </p>
+                    
+                    <p>
+                      Explore my <a href="#projects" className="text-teal hover:underline inline-flex items-center font-medium">
+                        projects <ExternalLink className="ml-1" size={14} />
+                      </a> to see my work in action, or review my <a href="#experience" className="text-teal hover:underline inline-flex items-center font-medium">
+                        experience <ExternalLink className="ml-1" size={14} />
+                      </a> for details on my professional background.
+                    </p>
+                    
+                    <div className="mt-6 pt-4 border-t border-gray-100 dark:border-gray-800 flex justify-between items-center">
+                      <div>
+                        <p className="font-semibold mb-1">Your Name</p>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Web Developer</p>
+                      </div>
+                      <Button className="bg-teal hover:bg-teal-light">
+                        <Mail className="mr-2 h-4 w-4" /> Contact Me
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-          <div className="bg-white dark:bg-navy p-8 rounded-lg shadow-sm">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+          <div className="bg-white dark:bg-navy p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border-l-4 border-teal">
             <div className="w-12 h-12 bg-teal/10 rounded-full flex items-center justify-center mb-4">
-              <Code className="text-teal" size={24} />
+              <Code className="text-teal" size={22} />
             </div>
-            <h4 className="text-xl font-semibold mb-2">Frontend Development</h4>
-            <p className="text-gray-600 dark:text-gray-400">
-              I craft responsive and interactive user interfaces using modern frameworks like React, along with HTML, CSS, and JavaScript.
+            <h4 className="text-lg font-semibold mb-2">Frontend Development</h4>
+            <p className="text-gray-600 dark:text-gray-400 text-sm">
+              Building responsive, accessible, and performant user interfaces with modern frameworks and tools.
             </p>
           </div>
           
-          <div className="bg-white dark:bg-navy p-8 rounded-lg shadow-sm">
+          <div className="bg-white dark:bg-navy p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border-l-4 border-teal">
             <div className="w-12 h-12 bg-teal/10 rounded-full flex items-center justify-center mb-4">
-              <Server className="text-teal" size={24} />
+              <Server className="text-teal" size={22} />
             </div>
-            <h4 className="text-xl font-semibold mb-2">Backend Development</h4>
-            <p className="text-gray-600 dark:text-gray-400">
-              I build robust server-side applications and APIs using Node.js, Express, and various database technologies.
+            <h4 className="text-lg font-semibold mb-2">Backend Development</h4>
+            <p className="text-gray-600 dark:text-gray-400 text-sm">
+              Creating robust and scalable server-side applications and APIs that power modern web solutions.
             </p>
           </div>
           
-          <div className="bg-white dark:bg-navy p-8 rounded-lg shadow-sm">
+          <div className="bg-white dark:bg-navy p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border-l-4 border-teal">
             <div className="w-12 h-12 bg-teal/10 rounded-full flex items-center justify-center mb-4">
-              <Briefcase className="text-teal" size={24} />
+              <Code className="text-teal" size={22} />
             </div>
-            <h4 className="text-xl font-semibold mb-2">Business Strategy</h4>
-            <p className="text-gray-600 dark:text-gray-400">
-              I understand business requirements and translate them into technical solutions that drive growth and improve user experience.
+            <h4 className="text-lg font-semibold mb-2">Technical Solution Design</h4>
+            <p className="text-gray-600 dark:text-gray-400 text-sm">
+              Architecting comprehensive solutions that align with business goals and technical requirements.
             </p>
           </div>
         </div>
