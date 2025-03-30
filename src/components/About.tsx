@@ -57,44 +57,55 @@ const About = () => {
                 </div>
               </div>
               
-              {/* Right side with letter content */}
+              {/* Right side with letter content - now horizontal format */}
               <div className="w-full md:w-3/4 p-6 md:p-8">
-                <div className="space-y-5">
+                <div className="flex flex-col space-y-6">
                   <div className="flex justify-between items-center">
                     <h3 className="text-xl font-semibold">Professional Summary</h3>
                     <span className="text-sm text-gray-500 dark:text-gray-400">{new Date().toLocaleDateString()}</span>
                   </div>
                   
-                  <div className="prose prose-sm dark:prose-invert max-w-none">
-                    <p>
-                      Thank you for visiting my portfolio. I'm a dedicated web developer with extensive experience creating responsive, user-focused applications that solve real business problems.
-                    </p>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 prose prose-sm dark:prose-invert max-w-none">
+                    <div className="bg-gray-50 dark:bg-navy/30 p-4 rounded-lg">
+                      <h4 className="font-medium text-teal mb-2">Background</h4>
+                      <p className="text-sm">
+                        Dedicated web developer with 5+ years of experience creating responsive, user-focused applications that solve real business problems.
+                      </p>
+                    </div>
                     
-                    <p>
-                      My expertise spans both frontend and backend technologies, with particular strength in creating intuitive user interfaces using <span className="text-teal font-medium">React</span> and <span className="text-teal font-medium">TypeScript</span>, backed by robust server architectures with <span className="text-teal font-medium">Node.js</span>.
-                    </p>
+                    <div className="bg-gray-50 dark:bg-navy/30 p-4 rounded-lg">
+                      <h4 className="font-medium text-teal mb-2">Expertise</h4>
+                      <p className="text-sm">
+                        Proficient in both frontend and backend technologies, specializing in <span className="text-teal font-medium">React</span>, <span className="text-teal font-medium">TypeScript</span>, and <span className="text-teal font-medium">Node.js</span>.
+                      </p>
+                    </div>
                     
-                    <p>
-                      I pride myself on writing clean, maintainable code and staying current with emerging technologies and best practices in web development. My approach combines technical excellence with strong communication skills and a deep understanding of business requirements.
-                    </p>
-                    
-                    <p>
-                      Explore my <a href="#projects" className="text-teal hover:underline inline-flex items-center font-medium">
-                        projects <ExternalLink className="ml-1" size={14} />
-                      </a> to see my work in action, or review my <a href="#experience" className="text-teal hover:underline inline-flex items-center font-medium">
-                        experience <ExternalLink className="ml-1" size={14} />
-                      </a> for details on my professional background.
-                    </p>
-                    
-                    <div className="mt-6 pt-4 border-t border-gray-100 dark:border-gray-800 flex justify-between items-center">
+                    <div className="bg-gray-50 dark:bg-navy/30 p-4 rounded-lg">
+                      <h4 className="font-medium text-teal mb-2">Approach</h4>
+                      <p className="text-sm">
+                        Writing clean, maintainable code while staying current with emerging technologies and best practices in web development.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-4 border-t border-gray-100 dark:border-gray-800">
+                    <div className="flex flex-row items-center gap-4">
                       <div>
-                        <p className="font-semibold mb-1">Your Name</p>
+                        <p className="font-semibold mb-0">Your Name</p>
                         <p className="text-sm text-gray-600 dark:text-gray-400">Web Developer</p>
                       </div>
-                      <Button className="bg-teal hover:bg-teal-light">
-                        <Mail className="mr-2 h-4 w-4" /> Contact Me
-                      </Button>
+                      <div className="flex gap-2">
+                        <a href="#projects" className="text-teal hover:underline inline-flex items-center text-sm">
+                          Projects <ExternalLink className="ml-1" size={14} />
+                        </a>
+                        <a href="#experience" className="text-teal hover:underline inline-flex items-center text-sm">
+                          Experience <ExternalLink className="ml-1" size={14} />
+                        </a>
+                      </div>
                     </div>
+                    <Button className="bg-teal hover:bg-teal-light">
+                      <Mail className="mr-2 h-4 w-4" /> Contact Me
+                    </Button>
                   </div>
                 </div>
               </div>
