@@ -6,7 +6,8 @@ import {
   Building,
   Code,
   Server,
-  ExternalLink
+  ExternalLink,
+  Clock
 } from 'lucide-react';
 import { 
   Card, 
@@ -15,6 +16,7 @@ import {
   CardHeader, 
   CardTitle 
 } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
 
 const Experience = () => {
   const experiences = [
@@ -70,59 +72,77 @@ const Experience = () => {
           </p>
         </div>
         
-        <div className="space-y-8 max-w-4xl mx-auto">
-          {experiences.map((exp) => (
-            <Card key={exp.id} className="animate-on-scroll border-0 shadow-md dark:bg-navy-light overflow-hidden">
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-teal"></div>
-              <CardHeader className="pb-2">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <CardTitle className="text-xl md:text-2xl text-teal flex items-center gap-2">
-                      <Briefcase size={20} />
-                      {exp.role}
-                    </CardTitle>
-                    <CardDescription className="text-base flex items-center gap-2 mt-1">
-                      <Building size={16} className="text-gray-500" />
-                      {exp.company}
-                    </CardDescription>
-                  </div>
-                  <span className="text-sm bg-teal/10 text-teal px-3 py-1 rounded-full flex items-center gap-1">
-                    <Calendar size={14} />
-                    {exp.period}
-                  </span>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 dark:text-gray-300 mb-4">
-                  {exp.description}
-                </p>
-                
-                <div className="mb-4">
-                  <h4 className="font-medium text-gray-900 dark:text-gray-200 mb-2">Key Achievements:</h4>
-                  <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
-                    {exp.achievements.map((achievement, index) => (
-                      <li key={index}>{achievement}</li>
-                    ))}
-                  </ul>
+        <div className="relative max-w-4xl mx-auto">
+          {/* Timeline center line */}
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-1 bg-teal/20 -ml-0.5 md:ml-0"></div>
+          
+          {/* Timeline items */}
+          <div className="space-y-12">
+            {experiences.map((exp, index) => (
+              <div key={exp.id} className="relative animate-on-scroll">
+                {/* Time marker */}
+                <div className={`absolute left-6 md:left-1/2 -ml-3.5 md:-ml-3.5 w-7 h-7 rounded-full bg-teal shadow-md z-10 flex items-center justify-center ${index % 2 === 0 ? 'md:translate-x-0' : 'md:translate-x-0'}`}>
+                  <Clock size={16} className="text-white" />
                 </div>
                 
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {exp.technologies.map((tech, index) => (
-                    <span 
-                      key={index}
-                      className="text-xs px-2 py-1 bg-teal/10 text-teal rounded-full flex items-center gap-1"
-                    >
-                      {index % 2 === 0 ? <Code size={12} /> : <Server size={12} />}
-                      {tech}
-                    </span>
-                  ))}
+                {/* Card layout alternating left and right on desktop */}
+                <div className={`relative ml-12 md:ml-0 ${index % 2 === 0 ? 'md:mr-[50%] md:pr-8' : 'md:ml-[50%] md:pl-8'}`}>
+                  <Card className="border-0 shadow-md dark:bg-navy-light overflow-hidden hover:shadow-lg transition-shadow">
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-teal"></div>
+                    <CardHeader className="pb-2">
+                      <div className="flex justify-between items-start flex-col sm:flex-row">
+                        <div>
+                          <CardTitle className="text-xl md:text-2xl text-teal flex items-center gap-2">
+                            <Briefcase size={20} />
+                            {exp.role}
+                          </CardTitle>
+                          <CardDescription className="text-base flex items-center gap-2 mt-1">
+                            <Building size={16} className="text-gray-500" />
+                            {exp.company}
+                          </CardDescription>
+                        </div>
+                        <span className="text-sm bg-teal/10 text-teal px-3 py-1 rounded-full flex items-center gap-1 mt-2 sm:mt-0">
+                          <Calendar size={14} />
+                          {exp.period}
+                        </span>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-700 dark:text-gray-300 mb-4">
+                        {exp.description}
+                      </p>
+                      
+                      <div className="mb-4">
+                        <h4 className="font-medium text-gray-900 dark:text-gray-200 mb-2">Key Achievements:</h4>
+                        <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
+                          {exp.achievements.map((achievement, index) => (
+                            <li key={index}>{achievement}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <Separator className="my-4 bg-gray-200 dark:bg-gray-700" />
+                      
+                      <div className="flex flex-wrap gap-2 mt-4">
+                        {exp.technologies.map((tech, index) => (
+                          <span 
+                            key={index}
+                            className="text-xs px-2 py-1 bg-teal/10 text-teal rounded-full flex items-center gap-1"
+                          >
+                            {index % 2 === 0 ? <Code size={12} /> : <Server size={12} />}
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
         
-        <div className="text-center mt-12">
+        <div className="text-center mt-16">
           <a 
             href="#contact" 
             className="inline-flex items-center text-teal hover:underline"
