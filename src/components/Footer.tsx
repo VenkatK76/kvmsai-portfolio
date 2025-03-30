@@ -23,6 +23,7 @@ const Footer = () => {
             <nav className="flex space-x-6">
               <a href="#home" className="text-gray-400 hover:text-teal">Home</a>
               <a href="#about" className="text-gray-400 hover:text-teal">About</a>
+              <a href="#experience" className="text-gray-400 hover:text-teal">Experience</a>
               <a href="#projects" className="text-gray-400 hover:text-teal">Projects</a>
               <a href="#contact" className="text-gray-400 hover:text-teal">Contact</a>
             </nav>
