@@ -35,12 +35,19 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm dark:bg-navy/90' : 'bg-transparent'}`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/90 backdrop-blur-md shadow-sm dark:bg-navy/90"
+          : "bg-transparent"
+      }`}
+    >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <a href="#" className="text-xl font-bold text-teal">
-            <span className="sr-only">Developer Portfolio</span>
-            &lt;/&gt;
+            {/* <span className="sr-only">Developer Portfolio</span>
+            &lt;/&gt; */}
+            <h3>{"{V}"}</h3>
           </a>
 
           {/* Desktop Navigation */}
@@ -59,7 +66,7 @@ const Navbar = () => {
           <Button
             variant="outline"
             className="hidden md:flex border-teal text-teal hover:bg-teal hover:text-white"
-            onClick={() => window.open('/resume.pdf', '_blank')}
+            onClick={() => window.open("/resume.pdf", "_blank")}
           >
             Resume
           </Button>
@@ -92,7 +99,7 @@ const Navbar = () => {
               <Button
                 variant="outline"
                 className="w-full border-teal text-teal hover:bg-teal hover:text-white"
-                onClick={() => window.open('/resume.pdf', '_blank')}
+                onClick={() => window.open("/resume.pdf", "_blank")}
               >
                 Resume
               </Button>
